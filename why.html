@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why dumpall? - The Smart File Aggregator for AI Context</title>
+    <meta name="description" content="Discover why dumpall is the pragmatic way to get code context - simple, fast, and reliable.">
+    
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> 
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Customizing Tailwind's default theme to match Terminalist branding
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'midnight-blue': '#1A1B26',
+                        'light-gray': '#D4D4D4',
+                        'terminal-green': '#39FF14',
+                        'muted-gray': '#5A5A5A',
+                        'border-dark': '#333440',
+                    },
+                    fontFamily: {
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-midnight-blue text-light-gray font-mono antialiased">
+
+    <!-- Navigation -->
+    <nav class="w-full border-b border-border-dark">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-terminal-green">dumpall.</a>
+            <div class="space-x-6">
+                <a href="index.html" class="text-light-gray hover:text-terminal-green transition-colors">Home</a>
+                <a href="why.html" class="text-terminal-green font-semibold">Why</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="w-full max-w-4xl mx-auto px-4 py-16 text-center">
+        <h1 class="text-4xl sm:text-5xl font-bold text-terminal-green mb-6">
+            Why <span class="text-light-gray">dumpall</span>?
+        </h1>
+        <p class="text-xl sm:text-2xl mb-8 max-w-3xl mx-auto">
+            Simple Context, <span class="text-terminal-green">Powerful Workflows</span>
+        </p>
+        <p class="text-lg text-muted-gray max-w-2xl mx-auto">
+            In a world of complex tools, <code class="text-terminal-green">dumpall</code> embraces Unix philosophy: do one thing well. 
+            It's a simple CLI tool that aggregates selected files into a single, structured output – transforming scattered code into actionable context for any need.
+        </p>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="w-full max-w-4xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-terminal-green mb-12 text-center">8 Practical Use Cases</h2>
+        
+        <div class="space-y-12">
+            <!-- Use Case 1 -->
+            <div class="bg-border-dark p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-terminal-green mb-4">1. Effortless Context for AI (Smart Prompting)</h3>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">Pain Point:</h4>
+                    <p class="text-muted-gray">Modern AI coders/editors often misinterpret context, consume too many tokens with irrelevant files, or fail to reference critical files even with @ mentions. Web-based AI chat versions are often better with document input, but getting that document is manual.</p>
+                </div>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">dumpall Solution:</h4>
+                    <p class="text-muted-gray">dumpall lets you precisely curate the exact set of files (and exclude noise like node_modules) to feed to an AI. It produces a clean, structured Markdown document perfect for pasting into an AI chat (web or CLI) or for generating embeddings.</p>
+                </div>
+                <div class="bg-midnight-blue p-4 rounded-md">
+                    <code class="text-terminal-green">npx dumpall . -e node_modules -e .git --clip</code>
+                </div>
+            </div>
+
+            <!-- Use Case 2 -->
+            <div class="bg-border-dark p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-terminal-green mb-4">2. Bridging CLI to Browser-based AI</h3>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">Pain Point:</h4>
+                    <p class="text-muted-gray">You're working in your terminal, but your preferred AI model is a web-based chat interface (e.g., ChatGPT, Claude, GitHub Copilot Chat in browser). Manually opening, copying, and pasting multiple files is tedious and error-prone.</p>
+                </div>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">dumpall Solution:</h4>
+                    <p class="text-muted-gray">With a single command, dumpall . --clip, you can scoop up your entire folder's relevant code (excluding specified files) and instantly have it ready in your clipboard. Just a quick Ctrl/Cmd+V in your browser, and your AI has all the context it needs.</p>
+                </div>
+                <div class="bg-midnight-blue p-4 rounded-md">
+                    <code class="text-terminal-green">npx dumpall . --clip</code>
+                </div>
+            </div>
+
+            <!-- Use Case 3 -->
+            <div class="bg-border-dark p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-terminal-green mb-4">3. Rapid Code Review & Debugging Prep</h3>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">Pain Point:</h4>
+                    <p class="text-muted-gray">Reviewing a large pull request or debugging a bug across several interconnected files often means constantly opening new tabs, scrolling, and losing context.</p>
+                </div>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">dumpall Solution:</h4>
+                    <p class="text-muted-gray">Quickly gather all files related to a feature branch or a specific bug. The aggregated output gives you a single, unified view of the relevant code, making it easier to spot inconsistencies, architectural issues, or the root cause of a bug.</p>
+                </div>
+                <div class="bg-midnight-blue p-4 rounded-md">
+                    <code class="text-terminal-green">npx dumpall feature-x/ --color</code>
+                </div>
+            </div>
+
+            <!-- Use Case 4 -->
+            <div class="bg-border-dark p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-terminal-green mb-4">4. Instant Code Sharing & Ad-Hoc Documentation</h3>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">Pain Point:</h4>
+                    <p class="text-muted-gray">Need to share a few related code files with a colleague, put them in a Slack thread, or quickly prepare snippets for a blog post? Manual copying can be slow, especially with formatting.</p>
+                </div>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">dumpall Solution:</h4>
+                    <p class="text-muted-gray">dumpall aggregates your files into a clean, Markdown-formatted output. Copy to clipboard (--clip) and paste anywhere. This provides a consistent, readable format that includes file paths as headings, maintaining context better than raw text dumps.</p>
+                </div>
+                <div class="bg-midnight-blue p-4 rounded-md">
+                    <code class="text-terminal-green">npx dumpall ./src --clip</code>
+                </div>
+            </div>
+
+            <!-- Use Case 5 -->
+            <div class="bg-border-dark p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-terminal-green mb-4">5. Building Custom Knowledge Bases & Code Snippet Collections</h3>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">Pain Point:</h4>
+                    <p class="text-muted-gray">Managing a personal or team-shared knowledge base of useful code patterns. Copying and organizing snippets from live projects can be a fragmented process.</p>
+                </div>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">dumpall Solution:</h4>
+                    <p class="text-muted-gray">Extract specific folders or file types to quickly populate your custom knowledge base. The structured output ensures your snippets retain their source context, making them more discoverable and reusable later.</p>
+                </div>
+                <div class="bg-midnight-blue p-4 rounded-md">
+                    <code class="text-terminal-green">npx dumpall utils/sql --clip</code>
+                </div>
+            </div>
+
+            <!-- Use Case 6 -->
+            <div class="bg-border-dark p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-terminal-green mb-4">6. Scripting & Automation Input</h3>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">Pain Point:</h4>
+                    <p class="text-muted-gray">Many automation tasks (e.g., custom linters, static analysis, transformation scripts) require feeding an aggregated view of code, not just individual files. Building this aggregation logic from scratch in scripts can be complex.</p>
+                </div>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">dumpall Solution:</h4>
+                    <p class="text-muted-gray">dumpall adheres to Unix principles by being pipe-friendly. Its output can be easily redirected or piped directly to other CLI tools, making it a powerful building block in custom shell scripts, CI/CD pipelines, or automation workflows.</p>
+                </div>
+                <div class="bg-midnight-blue p-4 rounded-md">
+                    <code class="text-terminal-green">npx dumpall . > all_code.md</code>
+                </div>
+            </div>
+
+            <!-- Use Case 7 -->
+            <div class="bg-border-dark p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-terminal-green mb-4">7. Overcoming Manual Copy-Pasting Headaches</h3>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">Pain Point:</h4>
+                    <p class="text-muted-gray">The sheer inefficiency and frustration of manually navigating a file tree, selecting text from multiple files, and copy-pasting them one by one. This is a repetitive, error-prone task that breaks focus.</p>
+                </div>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">dumpall Solution:</h4>
+                    <p class="text-muted-gray">This tool exists to eliminate this tedious manual labor. One command, and all your desired files are instantly consolidated, formatted, and ready for use. It's about saving developer time and cognitive load, focusing on what matters: solving problems, not tedious data aggregation.</p>
+                </div>
+                <div class="bg-midnight-blue p-4 rounded-md">
+                    <code class="text-terminal-green">npx dumpall . -e node_modules -e .git</code>
+                </div>
+            </div>
+
+            <!-- Use Case 8 -->
+            <div class="bg-border-dark p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-terminal-green mb-4">8. Lean, Unix-Philosophied Simplicity</h3>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">Pain Point:</h4>
+                    <p class="text-muted-gray">Many "all-in-one" code tools are bloated, slow, or have steep learning curves. Sometimes you just need a straightforward utility that does one job extremely well.</p>
+                </div>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">dumpall Solution:</h4>
+                    <p class="text-muted-gray">dumpall is designed to be minimal, fast, and easy to use. It sticks to the Unix philosophy: a simple CLI command that combines files. It doesn't try to be an IDE, a linter, or a full AI agent; it's a powerful pre-processing step that empowers other tools and workflows.</p>
+                </div>
+                <div class="bg-midnight-blue p-4 rounded-md">
+                    <code class="text-terminal-green">npx dumpall --help</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="w-full max-w-4xl mx-auto px-4 py-16 text-center">
+        <h2 class="text-3xl font-bold text-terminal-green mb-8">Ready to Get Started?</h2>
+        <p class="text-lg text-muted-gray mb-8 max-w-2xl mx-auto">
+            Experience the power of simple, structured code aggregation. One command, infinite possibilities.
+        </p>
+        <div class="bg-border-dark p-4 rounded-lg flex items-center justify-center space-x-4 mb-8">
+            <code class="text-lg text-light-gray">npx dumpall . -e node_modules</code>
+            <button class="bg-terminal-green text-midnight-blue px-4 py-2 rounded-md font-bold text-lg hover:bg-opacity-80 transition-colors duration-200"
+                    onclick="navigator.clipboard.writeText('npx dumpall . -e node_modules -e .git'); alert('Command copied!')">
+                Copy
+            </button>
+        </div>
+        <a href="index.html" class="text-terminal-green hover:underline text-lg">← Back to Home</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full py-8 text-center border-t border-border-dark mt-16">
+        <p class="text-muted-gray text-sm">&copy; 2023 dumpall. All rights reserved.</p>
+        <p class="mt-2">
+            <a href="https://github.com/YOUR_USERNAME/dumpall" target="_blank" rel="noopener noreferrer" 
+               class="text-terminal-green hover:underline">View on GitHub</a>
+        </p>
+    </footer>
+
+</body>
+</html>
