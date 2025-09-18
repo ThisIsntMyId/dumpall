@@ -30,7 +30,7 @@
 #
 
 # --- Configuration ---
-VERSION="1.0.0"
+VERSION="1.0.4"
 SPINNER="/-\|" # Characters for the spinner animation
 
 # Color definitions for --color flag
