@@ -1,6 +1,6 @@
 {
   "name": "dumpall",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A CLI utility to display the contents of files in a directory, formatted in Markdown for AI context.",
   "main": "dumpall",
   "bin": {
