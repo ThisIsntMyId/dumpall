@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 #
+#       _                             _ _     
+#    __| |_   _ _ __ ___  _ __   __ _| | |    
+#   / _` | | | | '_ ` _ \| '_ \ / _` | | |    
+#  | (_| | |_| | | | | | | |_) | (_| | | |  _ 
+#   \__,_|\__,_|_| |_| |_| .__/ \__,_|_|_| (_)
+#                        |_|                  
+#                            Version: #VERSION
+# 
 # dumpall - Display contents of files with separators
-#
+# 
 # USAGE:
 #   dumpall [options] <file_or_directory>
 #
@@ -89,9 +97,7 @@ USE_COLOR=false
 
 # Show help if no arguments are given
 if [ $# -eq 0 ]; then
-    sed -n '2,/^$/p' "$0" | sed 's/^# //' | sed 's/^#//'
-    echo
-    echo "dumpall version $VERSION"
+    sed -n '2,/^$/p' "$0" | sed "s/#VERSION/$VERSION/" | sed 's/^# //' | sed 's/^#//'
     exit 0
 fi
 
@@ -113,9 +119,7 @@ while [ $# -gt 0 ]; do
             shift
             ;;
         -h|--help)
-            sed -n '2,/^$/p' "$0" | sed 's/^# //' | sed 's/^#//'
-            echo
-            echo "dumpall version $VERSION"
+            sed -n '2,/^$/p' "$0" | sed "s/#VERSION/$VERSION/" | sed 's/^# //' | sed 's/^#//'
             exit 0
             ;;
         -v|--version)
