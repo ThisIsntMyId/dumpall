@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dumpall - The Smart File Aggregator for AI Context</title>
+    <meta name="description" content="A CLI utility to display the contents of files in a directory, formatted in Markdown for AI context.">
+    
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> 
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Customizing Tailwind's default theme to match Terminalist branding
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'midnight-blue': '#1A1B26',
+                        'light-gray': '#D4D4D4',
+                        'terminal-green': '#39FF14',
+                        'muted-gray': '#5A5A5A',
+                        'border-dark': '#333440',
+                    },
+                    fontFamily: {
+                        mono: ['"JetBrains Mono"', 'monospace'], // Using JetBrains Mono
+                    },
+                    // You can add more spacing, fontSize, etc. if needed
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-midnight-blue text-light-gray font-mono antialiased flex flex-col items-center min-h-screen">
+
+
+    <section class="w-full max-w-4xl px-4 py-16 flex flex-col items-center text-center">
+        <img src="logo.png" alt="dumpall logo" class="h-20 sm:h-12 md:h-16 mb-4"> 
+        <p class="text-xl sm:text-2xl mb-8 max-w-2xl">
+            The smart file aggregator for <span class="text-terminal-green">AI context</span>, <br class="hidden sm:inline">code reviews, or archiving.
+        </p>
+        
+        <div class="bg-border-dark p-3 rounded-lg flex items-center justify-between space-x-4 mb-12 shadow-md">
+            <code class="text-lg sm:text-xl text-light-gray select-all">npx dumpall . -e node_modules</code>
+            <button class="bg-terminal-green text-midnight-blue px-4 py-2 rounded-md font-bold text-lg hover:bg-opacity-80 transition-colors duration-200"
+                    onclick="navigator.clipboard.writeText('npx dumpall . -e node_modules -e .git'); alert('Command copied!')">
+                Copy
+            </button>
+        </div>
+    </section>
+
+    <section class="w-full max-w-4xl px-4 py-16 border-t border-border-dark flex flex-col items-center text-center">
+        <h2 class="text-4xl font-bold text-terminal-green mb-8">See it in Action</h2>
+        <p class="text-lg mb-8 max-w-2xl">
+            Watch `dumpall` quickly transform your project files into structured Markdown.
+        </p>
+        <div class="bg-border-dark p-2 rounded-lg shadow-lg max-w-full">
+            <img src="demo.png" alt="dumpall visual demo" class="w-full h-auto rounded-md">
+        </div>
+    </section>
+
+    <section class="w-full max-w-4xl px-4 py-16 border-t border-border-dark">
+        <h2 class="text-4xl font-bold text-terminal-green mb-12 text-center">Powerful Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            
+            <div class="flex flex-col items-center p-6 bg-border-dark rounded-lg shadow-md">
+                <svg class="h-12 w-12 text-terminal-green mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <h3 class="text-xl font-bold mb-2 text-light-gray">LLM-Optimized Output</h3>
+                <p class="text-muted-gray text-base">Formats content into clean Markdown fenced code blocks, ideal for AI consumption.</p>
+            </div>
+
+            <div class="flex flex-col items-center p-6 bg-border-dark rounded-lg shadow-md">
+                <svg class="h-12 w-12 text-terminal-green mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path>
+                </svg>
+                <h3 class="text-xl font-bold mb-2 text-light-gray">Clipboard Integration</h3>
+                <p class="text-muted-gray text-base">Copy the entire formatted output directly to your clipboard with a single flag.</p>
+            </div>
+            
+            <div class="flex flex-col items-center p-6 bg-border-dark rounded-lg shadow-md">
+                <svg class="h-12 w-12 text-terminal-green mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
+                </svg>
+                <h3 class="text-xl font-bold mb-2 text-light-gray">Smart Exclusions</h3>
+                <p class="text-muted-gray text-base">Easily ignore unwanted directories like `node_modules` or `.git` with `--exclude`.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full max-w-4xl px-4 py-16 border-t border-border-dark flex flex-col items-center text-center">
+        <h2 class="text-4xl font-bold text-terminal-green mb-8">Command-Line Options</h2>
+        <p class="text-lg mb-8 max-w-2xl">
+            Fine-tune `dumpall`'s behavior to fit your exact needs.
+        </p>
+
+        <div class="w-full overflow-x-auto bg-border-dark rounded-lg shadow-md">
+            <table class="w-full text-left whitespace-nowrap">
+                <thead>
+                    <tr class="bg-muted-gray/20 text-terminal-green uppercase text-sm leading-normal">
+                        <th class="py-3 px-6">Option</th>
+                        <th class="py-3 px-6">Alias</th>
+                        <th class="py-3 px-6">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-light-gray text-base font-light">
+                    <tr class="border-b border-border-dark hover:bg-muted-gray/10">
+                        <td class="py-3 px-6"><code>--exclude &lt;name&gt;</code></td>
+                        <td class="py-3 px-6">-e</td>
+                        <td class="py-3 px-6">Exclude files or directories by name. Can be used multiple times.</td>
+                    </tr>
+                    <tr class="border-b border-border-dark hover:bg-muted-gray/10">
+                        <td class="py-3 px-6"><code>--clip</code></td>
+                        <td class="py-3 px-6">-c</td>
+                        <td class="py-3 px-6">Copy the output directly to the clipboard.</td>
+                    </tr>
+                    <tr class="border-b border-border-dark hover:bg-muted-gray/10">
+                        <td class="py-3 px-6"><code>--color</code></td>
+                        <td class="py-3 px-6"></td>
+                        <td class="py-3 px-6">Enable colorized output for display in a terminal.</td>
+                    </tr>
+                    <tr class="border-b border-border-dark hover:bg-muted-gray/10">
+                        <td class="py-3 px-6"><code>--no-progress</code></td>
+                        <td class="py-3 px-6"></td>
+                        <td class="py-3 px-6">Disable the progress indicator animation.</td>
+                    </tr>
+                    <tr class="border-b border-border-dark hover:bg-muted-gray/10">
+                        <td class="py-3 px-6"><code>--version</code></td>
+                        <td class="py-3 px-6">-v</td>
+                        <td class="py-3 px-6">Show the current version of the script.</td>
+                    </tr>
+                    <tr class="hover:bg-muted-gray/10">
+                        <td class="py-3 px-6"><code>--help</code></td>
+                        <td class="py-3 px-6">-h</td>
+                        <td class="py-3 px-6">Show this help message.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="w-full max-w-4xl px-4 py-16 border-t border-border-dark flex flex-col items-center text-center">
+        <h2 class="text-4xl font-bold text-terminal-green mb-8">Practical Examples</h2>
+        <p class="text-lg mb-8 max-w-2xl">
+            Get started quickly with these common use cases.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+            <div class="bg-border-dark p-6 rounded-lg text-left shadow-md">
+                <h3 class="text-xl font-bold text-terminal-green mb-4">Dump Current Directory (Excluding)</h3>
+                <p class="text-muted-gray text-base mb-4">Process all files in the current folder, ignoring `node_modules` and `.git` directories.</p>
+                <div class="bg-midnight-blue p-4 rounded-md text-sm text-light-gray overflow-x-auto">
+                    <code>npx dumpall . -e node_modules -e .git</code>
+                </div>
+            </div>
+
+            <div class="bg-border-dark p-6 rounded-lg text-left shadow-md">
+                <h3 class="text-xl font-bold text-terminal-green mb-4">Dump `src` and Copy to Clipboard</h3>
+                <p class="text-muted-gray text-base mb-4">Get the formatted content of your `src` folder directly into your clipboard.</p>
+                <div class="bg-midnight-blue p-4 rounded-md text-sm text-light-gray overflow-x-auto">
+                    <code>npx dumpall ./src --clip</code>
+                </div>
+            </div>
+            
+            <div class="bg-border-dark p-6 rounded-lg text-left shadow-md">
+                <h3 class="text-xl font-bold text-terminal-green mb-4">View Single File with Color</h3>
+                <p class="text-muted-gray text-base mb-4">Display a specific file's content in your terminal with syntax highlighting enabled.</p>
+                <div class="bg-midnight-blue p-4 rounded-md text-sm text-light-gray overflow-x-auto">
+                    <code>npx dumpall package.json --color</code>
+                </div>
+            </div>
+
+            <div class="bg-border-dark p-6 rounded-lg text-left shadow-md">
+                <h3 class="text-xl font-bold text-terminal-green mb-4">Disable Progress (for CI/Scripting)</h3>
+                <p class="text-muted-gray text-base mb-4">Run `dumpall` without the animated spinner, useful for automated environments.</p>
+                <div class="bg-midnight-blue p-4 rounded-md text-sm text-light-gray overflow-x-auto">
+                    <code>npx dumpall . --no-progress</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="w-full py-8 text-center border-t border-border-dark mt-auto">
+        <p class="text-muted-gray text-sm">&copy; 2023 dumpall. All rights reserved.</p>
+        <p class="mt-2">
+            <a href="https://github.com/YOUR_USERNAME/dumpall" target="_blank" rel="noopener noreferrer" 
+               class="text-terminal-green hover:underline">View on GitHub</a>
+        </p>
+    </footer>
+
+    <style>
+        .shadow-terminal-glow {
+            text-shadow: 0 0 5px var(--terminal-green), 0 0 15px rgba(57, 255, 20, 0.5), 0 0 25px rgba(57, 255, 20, 0.3);
+        }
+    </style>
+
+</body>
+</html>

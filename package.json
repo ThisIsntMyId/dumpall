@@ -1,0 +1,28 @@
+{
+    "name": "dumpall",
+    "version": "1.0.0",
+    "description": "A CLI utility to display the contents of files in a directory, formatted in Markdown for AI context.",
+    "main": "dumpall",
+    "bin": {
+      "dumpall": "./dumpall"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/ThisIsntMyId/dumpall.git"
+    },
+    "keywords": [
+      "cli",
+      "shell",
+      "utility",
+      "dump",
+      "context",
+      "llm",
+      "ai"
+    ],
+    "author": "Your Name",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/ThisIsntMyId/dumpall/issues"
+    },
+    "homepage": "https://github.com/ThisIsntMyId/dumpall#readme"
+  }
