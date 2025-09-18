@@ -1,0 +1,14 @@
+# Website assets (not needed in npm package)
+*.html
+*.gif
+*.png
+favicon.ico
+
+# Development files
+.git/
+.gitignore
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
