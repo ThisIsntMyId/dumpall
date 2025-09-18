@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/ThisIsntMyId/dumpall/issues"
   },
-  "homepage": "https://github.com/ThisIsntMyId/dumpall#readme",
+  "homepage": "https://dumpall.pages.dev",
   "engines": {
     "node": ">=10.0.0"
   }
