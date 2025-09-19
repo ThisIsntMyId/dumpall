@@ -39,8 +39,8 @@
         <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold text-terminal-green">dumpall.</a>
             <div class="flex items-center space-x-6">
-                <a href="index.html" class="text-terminal-green font-semibold">Home</a>
-                <a href="why.html" class="text-light-gray hover:text-terminal-green transition-colors">Why</a>
+                <a href="index.html" class="text-light-gray hover:text-terminal-green transition-colors">Home</a>
+                <a href="why.html" class="text-terminal-green font-semibold">Why</a>
                 <a href="https://github.com/ThisIsntMyId/dumpall" target="_blank" rel="noopener noreferrer" class="text-light-gray hover:text-terminal-green transition-colors flex items-center gap-2">
                     GitHub
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-6 h-6">
@@ -52,7 +52,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="w-full max-w-4xl mx-auto px-4 py-16 text-center">
+    <section class="w-full max-w-4xl mx-auto px-4 pt-8 pb-4 text-center">
         <h1 class="text-4xl sm:text-5xl font-bold text-terminal-green mb-6">
             Why <span class="text-light-gray">dumpall</span>?
         </h1>
@@ -65,6 +65,49 @@
         </p>
     </section>
 
+    <!-- Philosophy Section -->
+    <section class="w-full max-w-4xl mx-auto px-4 py-4">
+        <div class="bg-border-dark p-8 rounded-lg shadow-lg text-center">
+            <h2 class="text-3xl font-bold text-terminal-green mb-6">Like <code class="text-light-gray">cat</code> or <code class="text-light-gray">ls</code>, it's a lean building block</h2>
+            <p class="text-xl text-muted-gray mb-6">
+                No magic, just structured aggregation you can use anywhere. 
+                <span class="text-terminal-green">Deterministic, local, unlimited, predictable</span> input prep.
+            </p>
+            <div class="bg-midnight-blue p-4 rounded-md max-w-2xl mx-auto">
+                <code class="text-terminal-green">npx dumpall . -e node_modules -e .git</code>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLI vs Agents Section -->
+    <section class="w-full max-w-4xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-terminal-green mb-12 text-center">Why Not Just Use AI Agents?</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-border-dark p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-light-gray mb-4">AI Agents</h3>
+                <ul class="space-y-3 text-muted-gray">
+                    <li>• Dynamic but opaque</li>
+                    <li>• Limited by tokens & daily caps</li>
+                    <li>• Sometimes unpredictable</li>
+                    <li>• Hide complexity, silently drop files</li>
+                    <li>• Expensive at scale</li>
+                </ul>
+            </div>
+            
+            <div class="bg-border-dark p-8 rounded-lg shadow-lg border-2 border-terminal-green">
+                <h3 class="text-2xl font-bold text-terminal-green mb-4">dumpall</h3>
+                <ul class="space-y-3 text-light-gray">
+                    <li>• Deterministic & transparent</li>
+                    <li>• Unlimited, local control</li>
+                    <li>• Always predictable</li>
+                    <li>• Shows exactly what it processes</li>
+                    <li>• Free forever</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <!-- Use Cases Section -->
     <section class="w-full max-w-4xl mx-auto px-4 py-16">
         <h2 class="text-3xl font-bold text-terminal-green mb-12 text-center">8 Practical Use Cases</h2>
@@ -72,39 +115,7 @@
         <div class="space-y-12">
             <!-- Use Case 1 -->
             <div class="bg-border-dark p-8 rounded-lg shadow-lg">
-                <h3 class="text-2xl font-bold text-terminal-green mb-4">1. Effortless Context for AI (Smart Prompting)</h3>
-                <div class="mb-4">
-                    <h4 class="text-lg font-semibold text-light-gray mb-2">Pain Point:</h4>
-                    <p class="text-muted-gray">Modern AI coders/editors often misinterpret context, consume too many tokens with irrelevant files, or fail to reference critical files even with @ mentions. Web-based AI chat versions are often better with document input, but getting that document is manual.</p>
-                </div>
-                <div class="mb-4">
-                    <h4 class="text-lg font-semibold text-light-gray mb-2">dumpall Solution:</h4>
-                    <p class="text-muted-gray">dumpall lets you precisely curate the exact set of files (and exclude noise like node_modules) to feed to an AI. It produces a clean, structured Markdown document perfect for pasting into an AI chat (web or CLI) or for generating embeddings.</p>
-                </div>
-                <div class="bg-midnight-blue p-4 rounded-md">
-                    <code class="text-terminal-green">npx dumpall . -e node_modules -e .git --clip</code>
-                </div>
-            </div>
-
-            <!-- Use Case 2 -->
-            <div class="bg-border-dark p-8 rounded-lg shadow-lg">
-                <h3 class="text-2xl font-bold text-terminal-green mb-4">2. Bridging CLI to Browser-based AI</h3>
-                <div class="mb-4">
-                    <h4 class="text-lg font-semibold text-light-gray mb-2">Pain Point:</h4>
-                    <p class="text-muted-gray">You're working in your terminal, but your preferred AI model is a web-based chat interface (e.g., ChatGPT, Claude, GitHub Copilot Chat in browser). Manually opening, copying, and pasting multiple files is tedious and error-prone.</p>
-                </div>
-                <div class="mb-4">
-                    <h4 class="text-lg font-semibold text-light-gray mb-2">dumpall Solution:</h4>
-                    <p class="text-muted-gray">With a single command, dumpall . --clip, you can scoop up your entire folder's relevant code (excluding specified files) and instantly have it ready in your clipboard. Just a quick Ctrl/Cmd+V in your browser, and your AI has all the context it needs.</p>
-                </div>
-                <div class="bg-midnight-blue p-4 rounded-md">
-                    <code class="text-terminal-green">npx dumpall . --clip</code>
-                </div>
-            </div>
-
-            <!-- Use Case 3 -->
-            <div class="bg-border-dark p-8 rounded-lg shadow-lg">
-                <h3 class="text-2xl font-bold text-terminal-green mb-4">3. Rapid Code Review & Debugging Prep</h3>
+                <h3 class="text-2xl font-bold text-terminal-green mb-4">1. Rapid Code Review & Debugging Prep</h3>
                 <div class="mb-4">
                     <h4 class="text-lg font-semibold text-light-gray mb-2">Pain Point:</h4>
                     <p class="text-muted-gray">Reviewing a large pull request or debugging a bug across several interconnected files often means constantly opening new tabs, scrolling, and losing context.</p>
@@ -118,9 +129,9 @@
                 </div>
             </div>
 
-            <!-- Use Case 4 -->
+            <!-- Use Case 2 -->
             <div class="bg-border-dark p-8 rounded-lg shadow-lg">
-                <h3 class="text-2xl font-bold text-terminal-green mb-4">4. Instant Code Sharing & Ad-Hoc Documentation</h3>
+                <h3 class="text-2xl font-bold text-terminal-green mb-4">2. Instant Code Sharing & Ad-Hoc Documentation</h3>
                 <div class="mb-4">
                     <h4 class="text-lg font-semibold text-light-gray mb-2">Pain Point:</h4>
                     <p class="text-muted-gray">Need to share a few related code files with a colleague, put them in a Slack thread, or quickly prepare snippets for a blog post? Manual copying can be slow, especially with formatting.</p>
@@ -131,6 +142,38 @@
                 </div>
                 <div class="bg-midnight-blue p-4 rounded-md">
                     <code class="text-terminal-green">npx dumpall ./src --clip</code>
+                </div>
+            </div>
+
+            <!-- Use Case 3 -->
+            <div class="bg-border-dark p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-terminal-green mb-4">3. Effortless Context for AI (Smart Prompting)</h3>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">Pain Point:</h4>
+                    <p class="text-muted-gray">Modern AI agents hide complexity and silently drop files, overshoot token limits, or misinterpret context. Even with @ mentions, they often fail to reference critical files. Web-based AI chat versions work better with document input, but getting that document is manual. Plus, even pro plans (Cursor, Claude, Gemini) hit daily/token caps fast.</p>
+                </div>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">dumpall Solution:</h4>
+                    <p class="text-muted-gray">dumpall gives you unlimited, local control. Precisely curate the exact set of files (and exclude noise like node_modules) to feed to an AI. It produces a clean, structured Markdown document perfect for pasting into an AI chat (web or CLI) or for generating embeddings. No token limits, no daily caps, no hidden complexity.</p>
+                </div>
+                <div class="bg-midnight-blue p-4 rounded-md">
+                    <code class="text-terminal-green">npx dumpall . -e node_modules -e .git --clip</code>
+                </div>
+            </div>
+
+            <!-- Use Case 4 -->
+            <div class="bg-border-dark p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-terminal-green mb-4">4. Bridging CLI to Browser-based AI</h3>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">Pain Point:</h4>
+                    <p class="text-muted-gray">You're working in your terminal, but your preferred AI model is a web-based chat interface (e.g., ChatGPT, Claude, GitHub Copilot Chat in browser). Manually opening, copying, and pasting multiple files is tedious and error-prone.</p>
+                </div>
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-light-gray mb-2">dumpall Solution:</h4>
+                    <p class="text-muted-gray">With a single command, dumpall . --clip, you can scoop up your entire folder's relevant code (excluding specified files) and instantly have it ready in your clipboard. Just a quick Ctrl/Cmd+V in your browser, and your AI has all the context it needs.</p>
+                </div>
+                <div class="bg-midnight-blue p-4 rounded-md">
+                    <code class="text-terminal-green">npx dumpall . --clip</code>
                 </div>
             </div>
 
